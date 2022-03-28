@@ -1,6 +1,9 @@
 import app from "./app";
 import http from "http";
-import {Server as WebSocketServer} from "socket.io";
+import { Server as WebSocketServer } from "socket.io";
+
+import { connectDB } from "./db";
+connectDB();
 
 const server = http.createServer(app)
 const httpServer = server.listen(3000);
