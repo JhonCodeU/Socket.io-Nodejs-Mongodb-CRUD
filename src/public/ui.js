@@ -1,4 +1,4 @@
-import { saveNote } from "./socket.js";
+import { saveNote, deleteNote } from "./socket.js";
 
 const notesList = document.querySelector("#notes");
 
@@ -7,16 +7,21 @@ const noteUI = note => {
     div.innerHTML = `<div>
         <h2>${note.title}</h2>
         <div>
-            <button class="delete">Delete</button>
+            <button class="delete" data-id="${note._id}">Delete</button>
             <button class="update">Update</button>
         </div>
         <p>${note.description}</p>
     </div>`;
+
+    const btnDelete = div.querySelector(".delete");
+    btnDelete.addEventListener("click", (e) => {
+        deleteNote(e.target.dataset.id);
+    })
     return div;
 }
 
 export const renderNotes = (notes) => {
-  console.log(notes);
+  notesList.innerHTML = "";
   notes.forEach(note => appendNote(note));
 };
 
