@@ -9,7 +9,14 @@
 </head>
 
 <body>
-    hola
+    <form id="noteForm">
+        <input type="text" id="title" placeholder="Title">
+        <textarea id="Description" placeholder="Description"></textarea>
+        <button type="submit" id="submit">Submit</button>
+    </form>
+
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="main.js" type="module"></script>
 </body>
 
 </html>
